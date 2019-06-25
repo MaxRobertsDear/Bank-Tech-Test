@@ -1,8 +1,8 @@
 function Bank() {
 }
 
-Bank.prototype.balance = function() {
-  return 1;
+Bank.prototype.statement = function() {
+  return ('date || credit || debit || balance');
 }
 
 module.exports = Bank;
