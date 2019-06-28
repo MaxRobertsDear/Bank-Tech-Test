@@ -2,11 +2,11 @@ function Bank() {
 }
 
 Bank.prototype.statement = function() {
-  return ('date || credit || debit || balance');
+  console.log('date || credit || debit || balance');
+}
+
+Bank.prototype.deposit = function() {
+
 }
 
 module.exports = Bank;
-  // Player.prototype.play = function(song) {
-  //   this.currentlyPlayingSong = song;
-  //   this.isPlaying = true;
-  // };

@@ -4,17 +4,21 @@ describe("Bank", function() {
 
   beforeEach(function() {
     bank = new Bank();
+    console.log = jasmine.createSpy("log");
   });
 
   it("should return the header of the statement", function() {
-    expect(bank.statement()).toBe('date || credit || debit || balance');
+    bank.statement();
+    expect(console.log).toHaveBeenCalledWith('date || credit || debit || balance');
+  })
+
+  it('should return user input', function() {
+    var stdin = require('mock-stdin').stdin();
+    bank.deposit();
+    stdin.send(1000);
+    bank.statement();
+    expect(console.log).toHaveBeenCalledWith('06.08.19 || 1000 || debit || 1000');
   })
 });
 
-// it("should be able to play a Song", function() {
-//   player.play(song);
-//   expect(player.currentlyPlayingSong).toEqual(song);
 
-//   //demonstrates use of custom matcher
-//   expect(player).toBePlaying(song);
-// });
